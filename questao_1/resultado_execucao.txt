@@ -1,0 +1,27 @@
+ARRAY DE TAMANHO FIXO - 5 INTEIROS
+Endereco inicial: 000000EBE19FFA10
+Indice 0 | Valor:  1 | Endereco: 000000EBE19FFA10
+Indice 1 | Valor:  2 | Endereco: 000000EBE19FFA14
+Indice 2 | Valor:  3 | Endereco: 000000EBE19FFA18
+Indice 3 | Valor:  4 | Endereco: 000000EBE19FFA1C
+Indice 4 | Valor:  5 | Endereco: 000000EBE19FFA20
+
+ARRAY DINAMICO - 10 INTEIROS
+Endereco inicial: 0000022E10054AF0
+Indice 0 | Valor: 10 | Endereco: 0000022E10054AF0
+Indice 1 | Valor: 11 | Endereco: 0000022E10054AF4
+Indice 2 | Valor: 12 | Endereco: 0000022E10054AF8
+Indice 3 | Valor: 13 | Endereco: 0000022E10054AFC
+Indice 4 | Valor: 14 | Endereco: 0000022E10054B00
+Indice 5 | Valor: 15 | Endereco: 0000022E10054B04
+Indice 6 | Valor: 16 | Endereco: 0000022E10054B08
+Indice 7 | Valor: 17 | Endereco: 0000022E10054B0C
+Indice 8 | Valor: 18 | Endereco: 0000022E10054B10
+Indice 9 | Valor: 19 | Endereco: 0000022E10054B14
+
+Diferenca absoluta entre os enderecos iniciais: 1383757861088 bytes (em sistemas com enderecamento linear em bytes).
+Os enderecos e a diferenca podem variar a cada execucao.
+Usualmente, o array local fica na pilha e o dinamico no heap.
+A linguagem C nao exige essa organizacao da memoria.
+
+Memoria dinamica liberada com sucesso.

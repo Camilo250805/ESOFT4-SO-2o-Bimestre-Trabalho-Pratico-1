@@ -1,0 +1,22 @@
+Numero de frames (inteiro positivo): Paginas (inteiros nao negativos, separados por espacos ou virgulas): 
+SIMULACAO FIFO - 3 frames
+Frames exibidos da pagina mais antiga para a mais recente.
+Referencia: 7 | Frames: [7] | Page Fault (ocupou frame livre) | Total Faults: 1
+Referencia: 0 | Frames: [7, 0] | Page Fault (ocupou frame livre) | Total Faults: 2
+Referencia: 1 | Frames: [7, 0, 1] | Page Fault (ocupou frame livre) | Total Faults: 3
+Referencia: 2 | Frames: [0, 1, 2] | Page Fault (substituiu 7) | Total Faults: 4
+Referencia: 0 | Frames: [0, 1, 2] | Page Hit | Total Faults: 4
+Referencia: 3 | Frames: [1, 2, 3] | Page Fault (substituiu 0) | Total Faults: 5
+Referencia: 0 | Frames: [2, 3, 0] | Page Fault (substituiu 1) | Total Faults: 6
+Referencia: 4 | Frames: [3, 0, 4] | Page Fault (substituiu 2) | Total Faults: 7
+Referencia: 2 | Frames: [0, 4, 2] | Page Fault (substituiu 3) | Total Faults: 8
+Referencia: 3 | Frames: [4, 2, 3] | Page Fault (substituiu 0) | Total Faults: 9
+Referencia: 0 | Frames: [2, 3, 0] | Page Fault (substituiu 4) | Total Faults: 10
+Referencia: 3 | Frames: [2, 3, 0] | Page Hit | Total Faults: 10
+Referencia: 2 | Frames: [2, 3, 0] | Page Hit | Total Faults: 10
+
+ESTATISTICAS FINAIS
+Total de referencias: 13
+Total de faltas de pagina: 10
+Total de acertos: 3
+Taxa de faltas: 10/13 = 0.7692 (76.92%)

@@ -1,0 +1,59 @@
+Numero de frames (inteiro positivo): Paginas (separadas por espacos ou virgulas): 
+FIFO - ordem: mais antiga -> mais recente na chegada
+Referencia: 7 | Frames: [7] | Page Fault (frame livre) | Total Faults: 1
+Referencia: 0 | Frames: [7, 0] | Page Fault (frame livre) | Total Faults: 2
+Referencia: 1 | Frames: [7, 0, 1] | Page Fault (frame livre) | Total Faults: 3
+Referencia: 2 | Frames: [0, 1, 2] | Page Fault (substituiu 7) | Total Faults: 4
+Referencia: 0 | Frames: [0, 1, 2] | Page Hit | Total Faults: 4
+Referencia: 3 | Frames: [1, 2, 3] | Page Fault (substituiu 0) | Total Faults: 5
+Referencia: 0 | Frames: [2, 3, 0] | Page Fault (substituiu 1) | Total Faults: 6
+Referencia: 4 | Frames: [3, 0, 4] | Page Fault (substituiu 2) | Total Faults: 7
+Referencia: 2 | Frames: [0, 4, 2] | Page Fault (substituiu 3) | Total Faults: 8
+Referencia: 3 | Frames: [4, 2, 3] | Page Fault (substituiu 0) | Total Faults: 9
+Referencia: 0 | Frames: [2, 3, 0] | Page Fault (substituiu 4) | Total Faults: 10
+Referencia: 3 | Frames: [2, 3, 0] | Page Hit | Total Faults: 10
+Referencia: 2 | Frames: [2, 3, 0] | Page Hit | Total Faults: 10
+
+LRU - ordem: menos recente -> mais recente no uso
+Mapa: pagina=instante da ultima referencia (inicia em 1).
+Referencia: 7 | Frames: [7] | Page Fault (frame livre) | Total Faults: 1
+Ultimo uso: {7=1}
+Referencia: 0 | Frames: [7, 0] | Page Fault (frame livre) | Total Faults: 2
+Ultimo uso: {7=1, 0=2}
+Referencia: 1 | Frames: [7, 0, 1] | Page Fault (frame livre) | Total Faults: 3
+Ultimo uso: {7=1, 0=2, 1=3}
+Referencia: 2 | Frames: [0, 1, 2] | Page Fault (substituiu 7) | Total Faults: 4
+Ultimo uso: {0=2, 1=3, 2=4}
+Referencia: 0 | Frames: [1, 2, 0] | Page Hit | Total Faults: 4
+Ultimo uso: {1=3, 2=4, 0=5}
+Referencia: 3 | Frames: [2, 0, 3] | Page Fault (substituiu 1) | Total Faults: 5
+Ultimo uso: {2=4, 0=5, 3=6}
+Referencia: 0 | Frames: [2, 3, 0] | Page Hit | Total Faults: 5
+Ultimo uso: {2=4, 3=6, 0=7}
+Referencia: 4 | Frames: [3, 0, 4] | Page Fault (substituiu 2) | Total Faults: 6
+Ultimo uso: {3=6, 0=7, 4=8}
+Referencia: 2 | Frames: [0, 4, 2] | Page Fault (substituiu 3) | Total Faults: 7
+Ultimo uso: {0=7, 4=8, 2=9}
+Referencia: 3 | Frames: [4, 2, 3] | Page Fault (substituiu 0) | Total Faults: 8
+Ultimo uso: {4=8, 2=9, 3=10}
+Referencia: 0 | Frames: [2, 3, 0] | Page Fault (substituiu 4) | Total Faults: 9
+Ultimo uso: {2=9, 3=10, 0=11}
+Referencia: 3 | Frames: [2, 0, 3] | Page Hit | Total Faults: 9
+Ultimo uso: {2=9, 0=11, 3=12}
+Referencia: 2 | Frames: [0, 3, 2] | Page Hit | Total Faults: 9
+Ultimo uso: {0=11, 3=12, 2=13}
+
+COMPARACAO - MESMA ENTRADA PARA OS DOIS ALGORITMOS
+Referencias: 13
+FIFO | Faltas: 10 | Acertos: 3 | Taxa: 76.92%
+LRU  | Faltas: 9 | Acertos: 4 | Taxa: 69.23%
+Nesta entrada, LRU teve 1 falta(s) a menos que FIFO.
+Diferenca entre taxas (FIFO - LRU): +7.69 pontos percentuais.
+
+ANALISE CRITICA
+FIFO considera a chegada; LRU considera a referencia mais recente.
+LRU pode aproveitar a localidade temporal, mantendo paginas usadas recentemente.
+LRU exige atualizar a recencia a cada referencia, inclusive nos acertos.
+FIFO possui controle simples, mas pode remover uma pagina usada recentemente.
+LRU nao garante menos faltas que FIFO em toda sequencia.
+Esta comparacao mede faltas de pagina, nao tempo de execucao nem custo real de E/S.

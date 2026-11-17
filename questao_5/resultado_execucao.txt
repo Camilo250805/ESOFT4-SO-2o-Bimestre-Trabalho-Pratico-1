@@ -1,0 +1,24 @@
+COMPARACAO: PILHA E HEAP
+Operacoes por teste: 1000000 | Repeticoes: 7
+Aquecimento (soma): 99990000
+Relogio: QueryPerformanceCounter (tempo decorrido).
+
+Rodada | Pilha (s)   | Heap (s)
+     1 |    0.000799 |    0.026409
+     2 |    0.000586 |    0.025740
+     3 |    0.000579 |    0.025550
+     4 |    0.000594 |    0.025250
+     5 |    0.000594 |    0.025166
+     6 |    0.000622 |    0.025534
+     7 |    0.000622 |    0.026776
+
+Media pilha: 0.000628 s
+Media heap:  0.025775 s
+Soma verificada em cada teste: 499999500000
+Variacao do tempo do heap em relacao a pilha: +4004.95%
+Nesta execucao, o heap levou 4004.95% mais tempo.
+
+Analise: o heap inclui o gerenciamento de blocos por malloc/free.
+Os testes incluem chamadas de funcao e acessos a memoria.
+Tempos variam com compilador, hardware, cache e tarefas concorrentes.
+Execute novamente para observar essa variacao.

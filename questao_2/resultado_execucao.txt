@@ -1,0 +1,105 @@
+
+ESTADO DA MEMORIA (1000 unidades)
+Particao | Tamanho | Processo | Em uso | Frag. interna
+---------------------------------------------------------
+       1 |     100 |    LIVRE |      0 |             0
+       2 |     150 |    LIVRE |      0 |             0
+       3 |     200 |    LIVRE |      0 |             0
+       4 |     250 |    LIVRE |      0 |             0
+       5 |     300 |    LIVRE |      0 |             0
+Memoria usada pelos processos: 0 unidades.
+Memoria em particoes livres: 1000 unidades.
+Fragmentacao interna total: 0 unidades.
+
+P1 (90 unidades) alocado na particao 1 (100 unidades).
+Fragmentacao interna desta alocacao: 10 unidades.
+Fragmentacao interna total: 10 unidades.
+
+ESTADO DA MEMORIA (1000 unidades)
+Particao | Tamanho | Processo | Em uso | Frag. interna
+---------------------------------------------------------
+       1 |     100 |       P1 |     90 |            10
+       2 |     150 |    LIVRE |      0 |             0
+       3 |     200 |    LIVRE |      0 |             0
+       4 |     250 |    LIVRE |      0 |             0
+       5 |     300 |    LIVRE |      0 |             0
+Memoria usada pelos processos: 90 unidades.
+Memoria em particoes livres: 900 unidades.
+Fragmentacao interna total: 10 unidades.
+
+P2 (140 unidades) alocado na particao 2 (150 unidades).
+Fragmentacao interna desta alocacao: 10 unidades.
+Fragmentacao interna total: 20 unidades.
+
+ESTADO DA MEMORIA (1000 unidades)
+Particao | Tamanho | Processo | Em uso | Frag. interna
+---------------------------------------------------------
+       1 |     100 |       P1 |     90 |            10
+       2 |     150 |       P2 |    140 |            10
+       3 |     200 |    LIVRE |      0 |             0
+       4 |     250 |    LIVRE |      0 |             0
+       5 |     300 |    LIVRE |      0 |             0
+Memoria usada pelos processos: 230 unidades.
+Memoria em particoes livres: 750 unidades.
+Fragmentacao interna total: 20 unidades.
+
+P3 (180 unidades) alocado na particao 3 (200 unidades).
+Fragmentacao interna desta alocacao: 20 unidades.
+Fragmentacao interna total: 40 unidades.
+
+ESTADO DA MEMORIA (1000 unidades)
+Particao | Tamanho | Processo | Em uso | Frag. interna
+---------------------------------------------------------
+       1 |     100 |       P1 |     90 |            10
+       2 |     150 |       P2 |    140 |            10
+       3 |     200 |       P3 |    180 |            20
+       4 |     250 |    LIVRE |      0 |             0
+       5 |     300 |    LIVRE |      0 |             0
+Memoria usada pelos processos: 410 unidades.
+Memoria em particoes livres: 550 unidades.
+Fragmentacao interna total: 40 unidades.
+
+P2 liberado da particao 2.
+
+ESTADO DA MEMORIA (1000 unidades)
+Particao | Tamanho | Processo | Em uso | Frag. interna
+---------------------------------------------------------
+       1 |     100 |       P1 |     90 |            10
+       2 |     150 |    LIVRE |      0 |             0
+       3 |     200 |       P3 |    180 |            20
+       4 |     250 |    LIVRE |      0 |             0
+       5 |     300 |    LIVRE |      0 |             0
+Memoria usada pelos processos: 270 unidades.
+Memoria em particoes livres: 700 unidades.
+Fragmentacao interna total: 30 unidades.
+
+P4 (100 unidades) alocado na particao 2 (150 unidades).
+Fragmentacao interna desta alocacao: 50 unidades.
+Fragmentacao interna total: 80 unidades.
+
+ESTADO DA MEMORIA (1000 unidades)
+Particao | Tamanho | Processo | Em uso | Frag. interna
+---------------------------------------------------------
+       1 |     100 |       P1 |     90 |            10
+       2 |     150 |       P4 |    100 |            50
+       3 |     200 |       P3 |    180 |            20
+       4 |     250 |    LIVRE |      0 |             0
+       5 |     300 |    LIVRE |      0 |             0
+Memoria usada pelos processos: 370 unidades.
+Memoria em particoes livres: 550 unidades.
+Fragmentacao interna total: 80 unidades.
+
+Falha ao alocar P5 (350 unidades): nenhuma particao livre comporta o processo.
+
+ESTADO DA MEMORIA (1000 unidades)
+Particao | Tamanho | Processo | Em uso | Frag. interna
+---------------------------------------------------------
+       1 |     100 |       P1 |     90 |            10
+       2 |     150 |       P4 |    100 |            50
+       3 |     200 |       P3 |    180 |            20
+       4 |     250 |    LIVRE |      0 |             0
+       5 |     300 |    LIVRE |      0 |             0
+Memoria usada pelos processos: 370 unidades.
+Memoria em particoes livres: 550 unidades.
+Fragmentacao interna total: 80 unidades.
+

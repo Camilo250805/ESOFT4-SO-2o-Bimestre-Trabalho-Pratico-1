@@ -1,0 +1,56 @@
+Implementacao: cpython
+Versao: 3.12.14
+Tamanho da lista de cada objeto: 100.000 posicoes.
+Coleta automatica de ciclos inicialmente ativa: True
+
+ESTATISTICAS INICIAIS - gc.get_stats()
+Indice 0: {'collections': 6, 'collected': 24, 'uncollectable': 0}
+Indice 1: {'collections': 0, 'collected': 0, 'uncollectable': 0}
+Indice 2: {'collections': 1, 'collected': 7, 'uncollectable': 0}
+Os indices e contadores seguem a versao do Python em execucao.
+
+CENARIO 1 - CONTAGEM DE REFERENCIAS, SEM CICLOS
+CRIADO: A | 100000 posicoes na lista
+getrefcount(A), com uma variavel: 2
+getrefcount(A), com duas variaveis: 3
+getrefcount inclui uma referencia temporaria da propria chamada.
+Depois de del objeto, A continua vivo: True
+Removendo a ultima referencia forte (apelido):
+DESTRUIDO: A
+A foi destruido: True
+
+CENARIO 2 - OBJETO COM AUTORREFERENCIA
+CRIADO: B | 100000 posicoes na lista
+getrefcount(B), incluindo autorreferencia: 3
+Depois de del objeto, B continua vivo: True
+A autorreferencia impede que a contagem chegue a zero.
+DESTRUIDO: B
+Objetos inalcancaveis reportados por gc.collect(): 2
+B foi coletado: True
+
+CENARIO 3 - CICLO ENTRE DOIS OBJETOS
+CRIADO: C | 100000 posicoes na lista
+CRIADO: D | 100000 posicoes na lista
+getrefcount(C): 3
+getrefcount(D): 3
+Sem variaveis externas, C e D continuam vivos: True
+DESTRUIDO: C
+DESTRUIDO: D
+Objetos inalcancaveis reportados por gc.collect(): 4
+C e D foram coletados: True
+
+ESTATISTICAS FINAIS - gc.get_stats()
+Indice 0: {'collections': 6, 'collected': 24, 'uncollectable': 0}
+Indice 1: {'collections': 0, 'collected': 0, 'uncollectable': 0}
+Indice 2: {'collections': 3, 'collected': 13, 'uncollectable': 0}
+Os indices e contadores seguem a versao do Python em execucao.
+
+ANALISE DOS RESULTADOS
+Cenario 1: a contagem de referencias libera o objeto sem ciclos.
+Cenarios 2 e 3: o coletor identifica ciclos inalcancaveis.
+gc.collect() pode contar tambem listas e outros objetos do ciclo;
+seu retorno nao corresponde apenas as instancias de Objeto.
+Destruir objetos nao garante queda imediata da memoria do processo:
+o alocador pode reter memoria para reutilizacao.
+
+Coleta automatica de ciclos ativa ao finalizar: True
